@@ -178,52 +178,35 @@ con **zod** (falla si falta alguna). Resumen:
 
 ---
 
-## Mapa de módulos y estado
+## Estado del proyecto
 
-Leyenda: ✅ implementado · ⏳ pendiente (fase de dominios) · 🚧 en progreso.
+Todo lo descrito aquí está implementado y desplegado. Cifras del repositorio:
 
-### Fundación (foundation)
+| | |
+|---|---|
+| API (NestJS) | 19.006 líneas · 232 ficheros · 17 módulos de dominio |
+| Web (Next.js) | 29.215 líneas · 260 ficheros · 6 superficies |
+| Modelo de datos | 54 entidades en Prisma, con migraciones |
+| Tests | 18 suites de servicio |
 
-| Área | Estado |
-| ---- | ------ |
-| Monorepo (pnpm + turbo, tsconfig, eslint, prettier) | ✅ |
-| Paquetes compartidos (`@fgd/types`, `@fgd/theme`, `@fgd/tsconfig`, `@fgd/eslint-config`) | ✅ |
-| Infra (Dockerfiles, docker-compose, CI, Makefile, scripts) | ✅ |
-| API core (config zod, PrismaModule, common, `auth`, `tenancy`) | ⏳ |
-| Web core (Next config, Tailwind/tema, api client/BFF, layout) | ⏳ |
-| Prisma schema (todas las entidades) + seed | ⏳ |
+### Módulos de la API
 
-### Dominios de negocio (`apps/api/src/modules/*`)
+`auth` · `tenancy` · `tenants` · `users` · `superadmin` · `plans-billing` ·
+`clients` (CRM) · `catalog` · `bookings` (agenda, lista de espera, horarios) ·
+`loyalty` · `payments-cash` · `inventory` · `store` · `employees` ·
+`academy` (LMS) · `content` (blog, galería, testimonios) · `notifications` ·
+`stats` · `ai` · `uploads`
 
-| Módulo | Estado |
-| ------ | ------ |
-| `tenants` · `plans-billing` · `users` · `superadmin` | ⏳ |
-| `clients` (CRM) · `catalog` · `bookings` (agenda, waitlist, horarios) | ⏳ |
-| `loyalty` · `payments-cash` · `inventory` · `store` | ⏳ |
-| `employees` · `academy` (LMS) · `marketing` · `notifications` | ⏳ |
-| `stats` · `content` (blog, galería, testimonios) · `ai` | ⏳ |
+### Superficies del frontend
 
-### Superficies frontend (`apps/web/src/app/*`)
+Web pública · Autenticación · Portal de la clienta · Panel del salón ·
+Super Admin · Tarjeta regalo · Ticket
 
-| Área | Estado |
-| ---- | ------ |
-| Web pública `(marketing)` · Auth `(auth)` | ⏳ |
-| Portal cliente `(client)` · Panel salón `(admin)` · Super Admin `(superadmin)` | ⏳ |
+### Lo que no está
 
----
-
-## Roadmap por fases
-
-1. **Foundation (raíz)** — monorepo, paquetes compartidos, tooling. ✅
-2. **Infra** — Docker, compose, CI, Makefile, documentación. ✅
-3. **API core** — config validada, Prisma + tenancy, auth/RBAC, common. ⏳
-4. **Web core** — Next + Tailwind/tema, cliente API/BFF, layout y navegación. ⏳
-5. **Prisma schema + seed** — modelo de datos completo y datos de Aurora. ⏳
-6. **Módulos de dominio** (fan-out) — un dominio por carpeta, en paralelo. ⏳
-7. **Integración** — wiring central (`app.module.ts`, navegación), build final. ⏳
-8. **Verificación** — `pnpm -w typecheck`/`build`, tests críticos, e2e. ⏳
-
----
+- Pasarela de pago en vivo: la integración con Stripe está construida pero
+  corre en modo de prueba.
+- Aplicación móvil: la plataforma es web, no hay cliente nativo.
 
 ## Estructura del repositorio
 
