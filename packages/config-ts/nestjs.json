@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "FGD NestJS",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
+    "isolatedModules": false,
+    "declaration": false,
+    "declarationMap": false,
+    "removeComments": true,
+    "outDir": "./dist",
+    "types": ["node"]
+  }
+}

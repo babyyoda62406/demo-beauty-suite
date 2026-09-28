@@ -1,0 +1,26 @@
+# apps/web/.dockerignore — used when the build context is apps/web.
+# NOTE: the recommended build context is the repo root (see the Dockerfile
+# header); the root .dockerignore applies in that case.
+
+node_modules
+.next
+out
+build
+dist
+.turbo
+coverage
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs / build info / editors
+*.log
+*.tsbuildinfo
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,120 @@
+# =============================================================================
+# FGD Beauty Suite — local orchestration.
+# Bring the stack up with:  make up   (or `docker compose up -d --build`)
+# Values come from the repository `.env` (copy it from `.env.example`).
+# =============================================================================
+
+name: demo-beauty-suite
+
+services:
+  # --- PostgreSQL 16 --------------------------------------------------------
+  db:
+    image: postgres:16-alpine
+    container_name: fgd-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-fgd}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fgd_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-fgd_beauty}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fgd} -d ${POSTGRES_DB:-fgd_beauty}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - fgd-net
+
+  # --- Redis 7 (cache + BullMQ queues) -------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: fgd-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - fgd-net
+
+  # --- Mailhog (SMTP sink for local email testing) -------------------------
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: fgd-mailhog
+    restart: unless-stopped
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025" # SMTP
+      - "${MAILHOG_UI_PORT:-8025}:8025"   # Web UI
+    networks:
+      - fgd-net
+
+  # --- API (NestJS) ---------------------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: fgd-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Override host-oriented URLs with in-network service hostnames.
+      NODE_ENV: ${NODE_ENV:-development}
+      API_PORT: ${API_PORT:-3001}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-fgd}:${POSTGRES_PASSWORD:-fgd_dev_password}@db:5432/${POSTGRES_DB:-fgd_beauty}?schema=public
+      REDIS_URL: redis://redis:6379
+      SMTP_URL: smtp://mailhog:1025
+    ports:
+      - "${API_PORT:-3001}:3001"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - fgd-net
+
+  # --- Web (Next.js) --------------------------------------------------------
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    container_name: fgd-web
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${WEB_PORT:-3000}
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    depends_on:
+      api:
+        condition: service_started
+    networks:
+      - fgd-net
+
+networks:
+  fgd-net:
+    name: fgd-net
+    driver: bridge
+
+volumes:
+  db-data:
+    name: fgd-db-data
+  redis-data:
+    name: fgd-redis-data

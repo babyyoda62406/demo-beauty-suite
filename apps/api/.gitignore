@@ -1,0 +1,22 @@
+# Dependencies & build output
+node_modules/
+dist/
+coverage/
+.turbo/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Prisma generated client (regenerated on install)
+prisma/generated/
+
+# Logs
+*.log
+
+# Imágenes subidas en desarrollo (dir de fallback cuando UPLOAD_DIR no es escribible).
+# La barra inicial es imprescindible: sin ella la regla también se tragaba
+# `src/modules/uploads/`, así que el módulo de subidas nunca llegó a versionarse
+# —y `deploy.sh`, que solo sincroniza lo versionado, jamás lo subía al VPS.
+/uploads/

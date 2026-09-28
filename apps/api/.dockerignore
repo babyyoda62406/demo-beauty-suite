@@ -1,0 +1,35 @@
+# apps/api/.dockerignore — used when the build context is apps/api.
+# NOTE: the recommended build context is the repo root (see the Dockerfile
+# header); the root .dockerignore applies in that case. This file keeps the
+# app-scoped context clean for standalone builds.
+
+node_modules
+dist
+build
+.turbo
+coverage
+*.lcov
+
+# Prisma generated client
+prisma/generated
+generated
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs / build info / editors
+*.log
+*.tsbuildinfo
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tests are not needed inside the runtime image
+**/*.spec.ts
+**/*.e2e-spec.ts
+test

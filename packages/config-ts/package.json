@@ -1,0 +1,12 @@
+{
+  "name": "@fgd/tsconfig",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Configuraciones TypeScript compartidas del monorepo FGD Beauty Suite.",
+  "files": ["base.json", "nestjs.json", "nextjs.json"],
+  "exports": {
+    "./base.json": "./base.json",
+    "./nestjs.json": "./nestjs.json",
+    "./nextjs.json": "./nextjs.json"
+  }
+}

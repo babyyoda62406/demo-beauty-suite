@@ -1,0 +1,24 @@
+{
+  "name": "demo-beauty-suite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FGD Beauty Suite — SaaS multi-tenant para centros de belleza.",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.3",
+    "typescript": "^5.5.4"
+  }
+}

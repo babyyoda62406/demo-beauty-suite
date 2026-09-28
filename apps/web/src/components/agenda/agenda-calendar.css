@@ -1,0 +1,144 @@
+/**
+ * Overrides de marca para FullCalendar (v6 inyecta su CSS base por JS; aquí
+ * sólo ajustamos la piel para alinearla con la estética magenta/tinta del
+ * salón: radios generosos, tipografía, cabeceras suaves y foco visible AA).
+ * Ámbito acotado a `.fgd-agenda` para no filtrar estilos globales.
+ */
+
+.fgd-agenda {
+  --fc-border-color: #fbcfe3;
+  --fc-today-bg-color: #fff7fb;
+  --fc-neutral-bg-color: #fff7fb;
+  --fc-page-bg-color: transparent;
+  --fc-now-indicator-color: #d6157f;
+  --fc-event-border-color: transparent;
+  font-family: var(--font-sans), Poppins, ui-sans-serif, system-ui, sans-serif;
+}
+
+.fgd-agenda .fc {
+  font-size: 0.875rem;
+}
+
+/* Rejilla y bordes redondeados */
+.fgd-agenda .fc-scrollgrid {
+  border-radius: 1rem;
+  overflow: hidden;
+  border-color: var(--fc-border-color);
+}
+
+.fgd-agenda .fc .fc-scrollgrid-section > * {
+  border-color: var(--fc-border-color);
+}
+
+/* Cabecera de columnas (días) */
+.fgd-agenda .fc .fc-col-header-cell {
+  background-color: #fff7fb;
+  padding: 0.5rem 0;
+}
+
+.fgd-agenda .fc .fc-col-header-cell-cushion {
+  color: #2b2b2b;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+/* Etiquetas de horas */
+.fgd-agenda .fc .fc-timegrid-slot-label-cushion,
+.fgd-agenda .fc .fc-timegrid-axis-cushion {
+  color: #2b2b2b;
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+/* Número de día en vista mes */
+.fgd-agenda .fc .fc-daygrid-day-number {
+  color: #2b2b2b;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+}
+
+.fgd-agenda .fc .fc-day-today .fc-daygrid-day-number {
+  color: #d6157f;
+  font-weight: 700;
+}
+
+/* Eventos (citas) */
+.fgd-agenda .fc-event {
+  border-radius: 0.6rem;
+  border: none;
+  padding: 1px;
+  box-shadow: 0 2px 8px -3px rgba(20, 20, 20, 0.25);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.fgd-agenda .fc-event:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 6px 16px -6px rgba(20, 20, 20, 0.35);
+}
+
+.fgd-agenda .fc-event:focus-visible {
+  outline: 2px solid #d6157f;
+  outline-offset: 1px;
+}
+
+.fgd-agenda .fc-event.fc-event-dragging {
+  opacity: 0.85;
+}
+
+.fgd-agenda .fc-event .fc-event-main {
+  padding: 2px 5px;
+}
+
+/* Evento cancelado / no-show: atenuado y tachado */
+.fgd-agenda .fc-event.fgd-event-muted {
+  opacity: 0.55;
+}
+.fgd-agenda .fc-event.fgd-event-muted .fgd-event-title {
+  text-decoration: line-through;
+}
+
+.fgd-agenda .fgd-event-time {
+  font-weight: 600;
+  font-size: 0.7rem;
+  opacity: 0.95;
+}
+.fgd-agenda .fgd-event-title {
+  font-weight: 600;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fgd-agenda .fgd-event-sub {
+  font-size: 0.68rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hueco vacío al pasar el ratón → invita a crear cita */
+.fgd-agenda .fc-timegrid-col-bg:hover {
+  background-color: rgba(214, 21, 127, 0.03);
+}
+
+/* Indicador "ahora" */
+.fgd-agenda .fc .fc-timegrid-now-indicator-line {
+  border-color: #d6157f;
+}
+
+/* Ocultar el toolbar nativo: usamos controles propios de marca */
+.fgd-agenda .fc-header-toolbar {
+  display: none;
+}
+
+/* Enlaces "+n más" en vista mes */
+.fgd-agenda .fc .fc-daygrid-more-link {
+  color: #c2185b;
+  font-weight: 600;
+}

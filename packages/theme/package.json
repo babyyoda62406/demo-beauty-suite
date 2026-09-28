@@ -1,0 +1,24 @@
+{
+  "name": "@fgd/theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tokens de marca (paleta, tipografías, radios) de FGD Beauty Suite.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "files": ["src"],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "devDependencies": {
+    "@fgd/tsconfig": "workspace:*",
+    "typescript": "^5.5.4"
+  }
+}

@@ -1,0 +1,442 @@
+/* Un bloque por diseño (d1–d7). Copiado literal del prototipo. */
+
+/* ============================================================
+   Spa de Uñas — Tarjetas Regalo · cards.css
+   Los 7 diseños. Cada bloque replica una foto del cliente.
+   ============================================================ */
+
+/* ════════════════════════════════════════════════════════════
+   01 · SEDA Y VINO — ciruela profunda, sedas magenta, oro
+   ════════════════════════════════════════════════════════════ */
+[data-d="d1"] { --gold: #dcb56f; --gold-hi: #f3d9a2; --rosa: #ef9ec1; }
+
+[data-d="d1"] .face {
+  background:
+    radial-gradient(120% 130% at 50% 38%, #5d1b40 0%, #4a1231 55%, #350a22 100%);
+  color: var(--gold);
+}
+
+[data-d="d1"] .front .content { padding: 6.5cqw 8cqw; }
+[data-d="d1"] .front .logo { margin-bottom: 1.6cqw; }
+[data-d="d1"] .front .title-serif {
+  background: linear-gradient(175deg, #f6e2b0 15%, #d9ad5f 52%, #f1d296 78%, #c89a4e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1.2cqw 1.6cqw rgba(20, 4, 12, 0.55));
+}
+[data-d="d1"] .front .divider { margin: 2.6cqw 0 2.4cqw; }
+[data-d="d1"] .front .tagline { color: var(--rosa); }
+
+[data-d="d1"] .d1-wave-a { width: 105%; left: -18%; top: -9%; transform: rotate(-8deg); }
+[data-d="d1"] .d1-wave-b { width: 95%; left: -34%; top: 26%; transform: rotate(-28deg); opacity: 0.92; }
+[data-d="d1"] .d1-wave-c { width: 125%; left: -12%; bottom: -10%; transform: rotate(4deg); }
+[data-d="d1"] .d1-hand {
+  z-index: 4;
+  width: 42%;
+  right: -7%;
+  bottom: -20%;
+  transform: scaleX(-1) rotate(-14deg);
+  filter: drop-shadow(-1.2cqw 1cqw 2.4cqw rgba(20, 4, 12, 0.5));
+}
+
+/* Reverso 01 */
+[data-d="d1"] .d1b-wave-a { width: 92%; left: -22%; top: -12%; transform: rotate(-10deg); }
+[data-d="d1"] .d1b-wave-b { width: 110%; left: -28%; bottom: -8%; transform: rotate(-3deg); }
+[data-d="d1"] .d1b-gift {
+  width: 34%;
+  right: -6%;
+  bottom: -9%;
+  transform: rotate(-8deg);
+  filter: hue-rotate(-12deg) saturate(0.85) brightness(0.88)
+          drop-shadow(-1cqw 1cqw 2.2cqw rgba(20, 4, 12, 0.5));
+  z-index: 2;
+}
+[data-d="d1"] .d1b-handline { width: 15%; top: 6%; right: 7%; opacity: 0.9; transform: rotate(6deg); }
+[data-d="d1"] .d1b-spark { color: var(--gold-hi); width: 3.4cqw; top: 7%; right: 24%; }
+[data-d="d1"] .back .back-cols { padding-right: 10cqw; }
+[data-d="d1"] .qr-panel { background: #f7e3ec; box-shadow: 0 2cqw 4cqw rgba(20, 4, 12, 0.35); }
+[data-d="d1"] .qr { color: #8d2456; }
+[data-d="d1"] .qr-badge { background: #f7e3ec; color: #8d2456; }
+[data-d="d1"] .scan { color: var(--rosa); }
+[data-d="d1"] .vline { color: var(--gold); }
+[data-d="d1"] .fields { color: var(--gold); max-width: 42cqw; }
+[data-d="d1"] .logo { width: 15cqw; }
+
+/* ════════════════════════════════════════════════════════════
+   02 · NOIR MÁRMOL — negro marmolado, magenta y oro
+   ════════════════════════════════════════════════════════════ */
+[data-d="d2"] { --gold: #d5aa5e; --gold-hi: #eecd8b; }
+
+[data-d="d2"] .face {
+  background:
+    linear-gradient(118deg, transparent 44.6%, rgba(213, 170, 94, 0.03) 46%, transparent 47.6%),
+    linear-gradient(64deg, transparent 70.6%, rgba(213, 170, 94, 0.02) 72%, transparent 73.6%),
+    radial-gradient(85% 70% at 24% 22%, rgba(255, 245, 228, 0.04), transparent 60%),
+    radial-gradient(70% 60% at 78% 76%, rgba(122, 66, 88, 0.12), transparent 65%),
+    radial-gradient(130% 120% at 50% 45%, #1a1415 0%, #131011 58%, #0b0809 100%);
+  color: var(--gold);
+}
+[data-d="d2"] .divider svg,
+[data-d="d2"] .vline svg { color: #e0498f; }
+
+[data-d="d2"] .front .content { padding: 7cqw 8cqw; }
+[data-d="d2"] .front .logo { margin-bottom: 1.8cqw; }
+[data-d="d2"] .front .kicker::before { content: '· '; }
+[data-d="d2"] .front .kicker::after { content: ' ·'; }
+[data-d="d2"] .front .title-serif {
+  background: linear-gradient(175deg, #f0d296 12%, #cf9f4f 55%, #eecd8b 82%, #b98b45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1.2cqw 1.8cqw rgba(0, 0, 0, 0.7));
+}
+[data-d="d2"] .front .divider { margin: 2.6cqw 0 2.4cqw; }
+[data-d="d2"] .front .tagline { font-size: 3.3cqw; opacity: 0.92; }
+
+[data-d="d2"] .d2-wave-a { width: 96%; left: -20%; top: -11%; transform: rotate(-11deg); }
+[data-d="d2"] .d2-dust { width: 42%; right: -4%; top: 7%; opacity: 0.6; transform: rotate(-8deg); clip-path: inset(18% 3% 4% 6%); }
+[data-d="d2"] .d2-wave-b { width: 130%; left: -16%; bottom: -2%; transform: rotate(2deg); }
+[data-d="d2"] .d2-hand {
+  z-index: 4;
+  width: 44%;
+  right: -5%;
+  bottom: -7%;
+  transform: scaleX(-1) rotate(-4deg);
+  filter: drop-shadow(-1.2cqw 1cqw 2.6cqw rgba(0, 0, 0, 0.65));
+}
+
+/* Reverso 02 */
+[data-d="d2"] .d2b-wave-a { width: 96%; right: -22%; top: -12%; transform: scaleX(-1) rotate(11deg); }
+[data-d="d2"] .d2b-wave-b { width: 112%; left: -16%; bottom: -12%; transform: rotate(2deg); }
+[data-d="d2"] .d2b-branch { width: 30%; right: -3%; top: -4%; transform: rotate(148deg); opacity: 0.85; }
+[data-d="d2"] .d2b-bottle { color: var(--gold); width: 8cqw; right: 7%; bottom: 20%; z-index: 3; opacity: 0.95; }
+[data-d="d2"] .d2b-spark { color: var(--gold-hi); width: 3cqw; right: 17%; bottom: 34%; z-index: 3; }
+[data-d="d2"] .qr-panel {
+  background: #f3ecdc;
+  border-radius: 4cqw;
+  box-shadow: 0 0 0 0.5cqw #f3ecdc, 0 0 0 1.1cqw var(--gold), 0 2cqw 4.5cqw rgba(0, 0, 0, 0.6);
+}
+[data-d="d2"] .qr { color: #241d1e; }
+[data-d="d2"] .qr-badge { background: #f3ecdc; color: #241d1e; }
+[data-d="d2"] .scan { color: var(--gold); }
+[data-d="d2"] .vline { color: var(--gold); }
+[data-d="d2"] .fields { color: var(--gold); max-width: 34cqw; }
+
+/* ════════════════════════════════════════════════════════════
+   03 · PÚRPURA SATÍN — satén ciruela, marco clásico, script
+   ════════════════════════════════════════════════════════════ */
+[data-d="d3"] { --gold: #d9b26a; --rosa: #d67ba0; }
+
+[data-d="d3"] .face {
+  background:
+    linear-gradient(155deg, rgba(255, 220, 240, 0.13) 0%, transparent 34%),
+    linear-gradient(24deg, rgba(10, 1, 6, 0.6) 0%, transparent 50%),
+    radial-gradient(140% 120% at 42% 30%, #4a1433 0%, #300b20 52%, #190412 100%);
+  color: var(--gold);
+}
+
+/* Marco doble dorado */
+[data-d="d3"] .face::after {
+  content: '';
+  position: absolute;
+  inset: 3.6cqw;
+  border: 1px solid rgba(217, 178, 106, 0.9);
+  border-radius: 2.6cqw;
+  box-shadow: inset 0 0 0 0.35cqw transparent, inset 0 0 2.4cqw rgba(217, 178, 106, 0.12);
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-d="d3"] .d3-agate-a { width: 72%; left: -23%; top: -15%; transform: rotate(-33deg); opacity: 0.85; filter: saturate(0.6) brightness(1.05); }
+[data-d="d3"] .d3-agate-b { width: 72%; right: -23%; bottom: -15%; transform: rotate(147deg); opacity: 0.85; filter: saturate(0.6) brightness(1.05); }
+[data-d="d3"] .d3-dust-a { width: 38%; left: -6%; top: 20%; transform: rotate(-33deg); opacity: 0.8; }
+[data-d="d3"] .d3-dust-b { width: 38%; right: -6%; bottom: 20%; transform: rotate(147deg); opacity: 0.8; }
+
+[data-d="d3"] .front .content { padding: 9cqw 10cqw; justify-content: center; }
+[data-d="d3"] .front .lotus-img { width: 15cqw; margin-bottom: 1cqw; }
+[data-d="d3"] .front .kicker { font-size: 4.2cqw; letter-spacing: 0.58em; text-indent: 0.58em; }
+[data-d="d3"] .front .title-serif {
+  font-size: 16cqw;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: linear-gradient(175deg, #f6dfa8 12%, #d3a253 55%, #f0cf92 82%, #bd8f49 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1.2cqw 1.8cqw rgba(15, 2, 9, 0.6));
+}
+[data-d="d3"] .front .title-script { font-size: 9.6cqw; color: var(--rosa); margin-top: 0.6cqw; }
+[data-d="d3"] .front .flourish { width: 26cqw; margin-top: 2.2cqw; color: var(--gold); }
+
+/* Reverso 03 */
+[data-d="d3"] .back .back-cols { flex-direction: column; gap: 0; padding: 8cqw 10cqw; }
+[data-d="d3"] .d3b-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6cqw;
+  width: 100%;
+}
+[data-d="d3"] .d3-qrwrap { position: relative; flex: none; width: 30cqw; padding: 3.4cqw; }
+[data-d="d3"] .d3-qrwrap .frame {
+  position: absolute;
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  max-width: none;
+  object-fit: fill;
+}
+[data-d="d3"] .d3-qrwrap .qr-chip {
+  position: relative;
+  background: #f5ecd9;
+  padding: 2.4cqw;
+  border-radius: 1.6cqw;
+}
+[data-d="d3"] .qr { color: #3a1027; }
+[data-d="d3"] .qr-badge { background: #f5ecd9; color: #3a1027; }
+[data-d="d3"] .d3b-right { display: flex; flex-direction: column; gap: 5cqw; min-width: 0; flex: 1; }
+[data-d="d3"] .d3b-scan {
+  font-family: var(--script);
+  font-size: 6.2cqw;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2cqw;
+}
+[data-d="d3"] .d3b-scan .arrow { width: 4.4cqw; transform: rotate(-115deg); }
+[data-d="d3"] .d3b-scan .heart { width: 3cqw; color: var(--rosa); }
+[data-d="d3"] .fields { color: var(--gold); gap: 5.5cqw; }
+[data-d="d3"] .d3b-foot {
+  margin-top: 5cqw;
+  display: flex;
+  align-items: center;
+  gap: 3cqw;
+  color: var(--gold);
+}
+[data-d="d3"] .d3b-foot .flourish { width: 17cqw; }
+[data-d="d3"] .d3b-foot .flourish.mirror { transform: scaleX(-1); }
+[data-d="d3"] .d3b-foot .bottle-img {
+  width: 7cqw;
+  filter: hue-rotate(-25deg) saturate(0.75) brightness(0.9)
+          drop-shadow(0 1cqw 2cqw rgba(15, 2, 9, 0.55));
+}
+
+/* ════════════════════════════════════════════════════════════
+   04 · BOHO ACUARELA — crema, salvia y rubor, línea fina
+   ════════════════════════════════════════════════════════════ */
+[data-d="d4"] { --verde: #5e6c48; --rosa: #d98a9c; --terra: #c8a98a; }
+
+[data-d="d4"] .face {
+  background:
+    radial-gradient(36% 32% at 6% 4%, rgba(178, 189, 149, 0.45), transparent 68%),
+    radial-gradient(30% 26% at 97% 8%, rgba(193, 200, 165, 0.4), transparent 68%),
+    radial-gradient(34% 30% at 94% 94%, rgba(232, 172, 158, 0.5), transparent 68%),
+    radial-gradient(30% 28% at 4% 97%, rgba(190, 198, 160, 0.35), transparent 68%),
+    #f6f1e6;
+  color: var(--verde);
+}
+[data-d="d4"] .d4-dust { width: 26%; right: 2%; top: 5%; opacity: 0.5; transform: rotate(-14deg); }
+
+[data-d="d4"] .d4-branch-a { width: 24%; left: -1%; top: -4%; transform: rotate(8deg); opacity: 0.9; }
+[data-d="d4"] .d4-arc { width: 48%; left: -8%; bottom: 7%; top: auto; color: var(--terra); opacity: 0.6; transform: rotate(6deg); }
+[data-d="d4"] .d4-leafline { width: 20%; right: 5%; bottom: 3%; color: #fff; opacity: 0.95; }
+[data-d="d4"] .d4-speck-a, [data-d="d4"] .d4-speck-b {
+  width: 1.4cqw; aspect-ratio: 1; border-radius: 50%;
+  background: #a8b184; opacity: 0.6;
+}
+[data-d="d4"] .d4-speck-a { left: 14%; bottom: 18%; }
+[data-d="d4"] .d4-speck-b { left: 9%; bottom: 13%; width: 1cqw; }
+
+[data-d="d4"] .front .content { padding: 8cqw 10cqw; justify-content: center; }
+[data-d="d4"] .front .logo-oval { width: 13cqw; margin-bottom: 2.4cqw; }
+[data-d="d4"] .front .kicker { font-size: 4.9cqw; letter-spacing: 0.3em; text-indent: 0.3em; font-weight: 500; }
+[data-d="d4"] .front .divider { margin: 2.8cqw 0; width: 30cqw; color: var(--verde); }
+[data-d="d4"] .front .divider svg { width: 4cqw; }
+[data-d="d4"] .front .title-script { font-size: 9.6cqw; color: #d08a93; }
+
+/* Reverso 04 — composición vertical centrada */
+[data-d="d4"] .back .back-cols { flex-direction: column; gap: 2.6cqw; padding: 7cqw 16cqw; }
+[data-d="d4"] .d4b-lotus { width: 9cqw; color: var(--verde); }
+[data-d="d4"] .d4b-scan { font-size: 5.4cqw; letter-spacing: 0.06em; }
+[data-d="d4"] .d4b-rule {
+  width: 34cqw; display: flex; align-items: center; gap: 1.8cqw;
+}
+[data-d="d4"] .d4b-rule::before, [data-d="d4"] .d4b-rule::after {
+  content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.6;
+}
+[data-d="d4"] .d4b-rule svg { width: 2.4cqw; }
+[data-d="d4"] .qr-panel {
+  width: 31cqw;
+  background: #fdfbf3;
+  border: 1px solid #b9bf9d;
+  border-radius: 3cqw;
+  padding: 2cqw;
+  margin-top: 0.6cqw;
+}
+[data-d="d4"] .qr { color: #4c5c36; }
+[data-d="d4"] .qr-badge { background: #fdfbf3; color: #4c5c36; }
+[data-d="d4"] .d4b-fields { width: 100%; display: flex; flex-direction: column; gap: 2.2cqw; margin-top: 1.6cqw; }
+[data-d="d4"] .d4b-fields .field { font-size: 4cqw; gap: 2cqw; }
+[data-d="d4"] .d4b-fields .field span { width: 10cqw; text-align: right; flex: none; }
+[data-d="d4"] .d4b-fields .field b {
+  flex: 1;
+  height: 6.4cqw;
+  background: #f1ecdc;
+  border: 1px solid #d8d2ba;
+  border-radius: 1.4cqw;
+}
+[data-d="d4"] .d4b-branch-a { width: 22%; left: -1%; top: 22%; transform: rotate(-14deg); opacity: 0.85; }
+[data-d="d4"] .d4b-branch-b { width: 20%; right: 0%; bottom: 8%; transform: rotate(10deg); opacity: 0.8; filter: saturate(0.6) brightness(1.08); }
+
+/* ════════════════════════════════════════════════════════════
+   05 · ROSE GOLD — rubor acuarela, oro rosa, corazones
+   ════════════════════════════════════════════════════════════ */
+[data-d="d5"] { --rose: #b4685a; --rose-deep: #a05543; }
+
+[data-d="d5"] .face {
+  background:
+    radial-gradient(42% 36% at 100% 0%, rgba(240, 176, 160, 0.5), transparent 68%),
+    radial-gradient(38% 34% at 0% 100%, rgba(240, 176, 160, 0.45), transparent 68%),
+    radial-gradient(34% 30% at 0% 0%, rgba(247, 203, 192, 0.4), transparent 68%),
+    #fbf1ec;
+  color: var(--rose);
+}
+[data-d="d5"] .d5-wash { width: 42%; right: -8%; top: -6%; opacity: 0.55; transform: rotate(-8deg); }
+
+[data-d="d5"] .d5-arc { width: 42%; right: -12%; top: -4%; color: #c98a70; opacity: 0.7; transform: rotate(-16deg); }
+[data-d="d5"] .d5-dust { width: 30%; right: 0; top: 13%; opacity: 0.9; transform: rotate(-12deg); }
+[data-d="d5"] .d5-hand {
+  z-index: 4;
+  width: 50%;
+  left: -4%;
+  bottom: -5%;
+  transform: rotate(3deg);
+  filter: drop-shadow(1cqw 1cqw 2.4cqw rgba(140, 70, 55, 0.35));
+}
+[data-d="d5"] .d5-leafline { width: 28%; right: -2%; bottom: -3%; color: #c98a70; opacity: 0.85; }
+
+[data-d="d5"] .front .content { padding: 7cqw 8cqw; }
+[data-d="d5"] .front .bottle-top { width: 6cqw; color: var(--rose); margin-bottom: 1.4cqw; }
+[data-d="d5"] .front .kicker { font-size: 3.6cqw; letter-spacing: 0.34em; text-indent: 0.34em; }
+[data-d="d5"] .front .title-script {
+  font-size: 14cqw;
+  margin-top: 1cqw;
+  background: linear-gradient(120deg, #cd8465 10%, #a05543 48%, #d29a7e 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-d="d5"] .front .divider { width: 26cqw; margin-top: 1.8cqw; color: var(--rose); }
+[data-d="d5"] .front .divider svg { width: 3.4cqw; }
+
+/* Reverso 05 */
+[data-d="d5"] .d5b-arc { width: 44%; right: -10%; bottom: 2%; color: #c98a70; opacity: 0.8; transform: rotate(10deg); }
+[data-d="d5"] .d5b-leafline { width: 20%; right: 2%; top: 6%; color: #d8a58e; opacity: 0.8; }
+[data-d="d5"] .back .back-cols { gap: 6cqw; }
+[data-d="d5"] .d5b-qrcol { display: flex; flex-direction: column; align-items: center; gap: 1.8cqw; }
+[data-d="d5"] .d5b-heart { width: 3.4cqw; color: #d89a82; }
+[data-d="d5"] .d5b-scan { font-style: italic; font-size: 3.9cqw; color: var(--rose-deep); }
+[data-d="d5"] .d5b-arrow { width: 5cqw; color: var(--rose); align-self: flex-end; margin-right: -3cqw; transform: rotate(195deg) scaleX(-1); }
+[data-d="d5"] .qr-panel {
+  width: 28cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #c98a70;
+  display: grid;
+  place-items: center;
+  padding: 4.8cqw;
+  box-shadow: 0 1.6cqw 3.5cqw rgba(140, 70, 55, 0.25);
+}
+[data-d="d5"] .qr { color: var(--rose-deep); }
+[data-d="d5"] .qr-badge { background: #fff; color: var(--rose-deep); }
+[data-d="d5"] .fields { color: var(--rose-deep); }
+[data-d="d5"] .field { font-size: 4.2cqw; }
+[data-d="d5"] .field span { font-weight: 400; color: #b5765a; }
+[data-d="d5"] .front .kicker { color: var(--rose-deep); }
+
+/* ════════════════════════════════════════════════════════════
+   06 · ONDAS ROSA — rosa luminoso, ondas translúcidas
+   ════════════════════════════════════════════════════════════ */
+[data-d="d6"] { --pink: #c94f86; --pink-deep: #a1195e; }
+
+[data-d="d6"] .face {
+  background:
+    radial-gradient(80% 70% at 30% 20%, #fef7fa 0%, #fdeef4 55%, #fbe0ec 100%);
+  color: var(--pink);
+}
+
+[data-d="d6"] .d6-blossom { width: 50%; left: -12%; top: -14%; opacity: 0.5; filter: saturate(0.85); }
+[data-d="d6"] .d6-petal-a { width: 7.5%; right: 12%; top: 8%; transform: rotate(35deg); opacity: 0.85; z-index: 3; }
+[data-d="d6"] .d6-petal-b { width: 7%; right: 30%; top: 20%; transform: rotate(-20deg); opacity: 0.6; z-index: 3; }
+[data-d="d6"] .waves { left: 0; right: 0; bottom: -2%; width: 100%; }
+[data-d="d6"] .waves svg { width: 100%; }
+[data-d="d6"] .d6-dust { width: 50%; left: 8%; bottom: 7%; opacity: 0.45; mix-blend-mode: screen; z-index: 2; }
+[data-d="d6"] .d6-hand {
+  z-index: 4;
+  width: 43%;
+  right: 14%;
+  bottom: -8%;
+  filter: drop-shadow(-1cqw 1cqw 2.2cqw rgba(120, 20, 65, 0.3));
+}
+
+[data-d="d6"] .front .content { padding: 7cqw 8cqw; }
+[data-d="d6"] .front .logo { color: #d64d8e; margin-bottom: 1.8cqw; }
+[data-d="d6"] .front .divider { margin: 2.2cqw 0; width: 26cqw; }
+[data-d="d6"] .front .title-serif { color: var(--pink-deep); }
+
+/* Reverso 06 */
+[data-d="d6"] .back { background: radial-gradient(90% 80% at 50% 40%, #fdf2f6 0%, #fae3ee 100%); }
+[data-d="d6"] .waves.top { bottom: auto; top: -2%; transform: rotate(180deg); }
+[data-d="d6"] .d6b-branch { width: 24%; right: -2%; top: -3%; transform: rotate(160deg); opacity: 0.75; filter: saturate(0.85) brightness(1.1); }
+[data-d="d6"] .d6b-petal { width: 7%; left: 6%; bottom: 16%; transform: rotate(15deg); opacity: 0.7; z-index: 2; }
+[data-d="d6"] .qr-panel { background: #fff; box-shadow: 0 1.8cqw 4cqw rgba(150, 30, 90, 0.18); }
+[data-d="d6"] .qr { color: #b3306e; }
+[data-d="d6"] .qr-badge { background: #fff; color: #b3306e; }
+[data-d="d6"] .scan { color: var(--pink-deep); }
+[data-d="d6"] .vline { color: #d98cb0; }
+[data-d="d6"] .fields { color: var(--pink-deep); max-width: 34cqw; }
+
+/* ════════════════════════════════════════════════════════════
+   07 · ONDAS ALBA — variante luminosa con tagline y flor
+   ════════════════════════════════════════════════════════════ */
+[data-d="d7"] { --pink: #c94f86; --pink-deep: #8f1653; --oro: #d9a86a; }
+
+[data-d="d7"] .face {
+  background:
+    radial-gradient(75% 68% at 55% 34%, #fffaf6 0%, #fdeef2 52%, #f8d3e1 100%);
+  color: var(--pink);
+}
+
+[data-d="d7"] .d7-wash { width: 58%; left: -24%; top: -14%; opacity: 0.4; transform: rotate(78deg); }
+[data-d="d7"] .d7-arc-a { width: 40%; left: -12%; top: 11%; color: var(--oro); opacity: 0.55; }
+[data-d="d7"] .waves { left: 0; right: 0; bottom: -2%; width: 100%; }
+[data-d="d7"] .waves svg { width: 100%; }
+[data-d="d7"] .d7-thread { width: 90%; left: 4%; bottom: 22%; color: var(--oro); opacity: 0.55; z-index: 2; transform: rotate(-3deg); }
+[data-d="d7"] .d7-flower { width: 26%; right: 10%; bottom: 17%; z-index: 3; opacity: 0.95; }
+[data-d="d7"] .d7-hand {
+  z-index: 4;
+  width: 48%;
+  right: -3%;
+  bottom: -10%;
+  filter: drop-shadow(-1cqw 1cqw 2.2cqw rgba(120, 20, 65, 0.3));
+}
+
+[data-d="d7"] .front .content { padding: 6.5cqw 8cqw; }
+[data-d="d7"] .front .logo { color: #d64d8e; margin-bottom: 1.6cqw; }
+[data-d="d7"] .front .title-serif { color: var(--pink-deep); }
+[data-d="d7"] .front .divider { margin: 2.2cqw 0; width: 26cqw; }
+[data-d="d7"] .front .tagline { color: #ad2668; }
+
+/* Reverso 07 */
+[data-d="d7"] .back { background: radial-gradient(90% 80% at 50% 40%, #fdf4f6 0%, #f9e2ec 100%); }
+[data-d="d7"] .waves.top { bottom: auto; top: -2%; transform: rotate(180deg); }
+[data-d="d7"] .d7b-branch { width: 20%; right: -4%; top: -5%; transform: rotate(160deg); opacity: 0.7; filter: saturate(0.85) brightness(1.1); }
+[data-d="d7"] .qr-panel { background: #fff; box-shadow: 0 1.8cqw 4cqw rgba(150, 30, 90, 0.18); }
+[data-d="d7"] .qr { color: #a12a63; }
+[data-d="d7"] .qr-badge { background: #fff; color: #a12a63; }
+[data-d="d7"] .scan { color: #a12a63; }
+[data-d="d7"] .vline { color: #d98cb0; }
+[data-d="d7"] .fields { color: #a12a63; max-width: 34cqw; }

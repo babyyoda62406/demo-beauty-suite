@@ -1,0 +1,114 @@
+# =============================================================================
+# Producción — FGD Beauty Suite / Estudio Aurora (VPS vps-24).
+# Solo `web` publica puerto (en 127.0.0.1, detrás de Caddy). db/redis/api son
+# internos a la red de compose. Migraciones+seed vía servicio `migrate` de un
+# solo uso (stage builder, con todas las deps), sin inflar la imagen de prod.
+#
+#   docker compose -f docker-compose.prod.yml build
+#   docker compose -f docker-compose.prod.yml up -d db redis
+#   docker compose -f docker-compose.prod.yml run --rm migrate
+#   docker compose -f docker-compose.prod.yml up -d api web
+# =============================================================================
+name: estudioaurora
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [net]
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [net]
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    image: estudioaurora-api
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      NODE_ENV: production
+      API_PORT: 3001
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?schema=public
+      REDIS_URL: redis://redis:6379
+      UPLOAD_DIR: /app/uploads
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    networks: [net]
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${PUBLIC_URL}
+        NEXT_PUBLIC_SITE_URL: ${PUBLIC_URL}
+    image: estudioaurora-web
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # El BFF (server-side) llama a la API por la red interna de compose.
+      API_INTERNAL_URL: http://api:3001
+    ports:
+      - '127.0.0.1:${WEB_HOST_PORT}:3000'
+    depends_on:
+      api: { condition: service_started }
+    networks: [net]
+
+  # Un solo uso: aplica migraciones y siembra. Usa el stage `builder` (dev deps
+  # + prisma + ts-node). `restart: no` para que no reviva.
+  migrate:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+      target: builder
+    env_file: [.env]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}?schema=public
+      UPLOAD_DIR: /app/uploads
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      db: { condition: service_healthy }
+    command: sh -c "pnpm --filter @fgd/api exec prisma migrate deploy && pnpm --filter @fgd/api run seed"
+    restart: 'no'
+    networks: [net]
+
+networks:
+  net:
+    name: estudioaurora-net
+
+volumes:
+  db-data:
+    name: estudioaurora-db-data
+  redis-data:
+    name: estudioaurora-redis-data
+  uploads:
+    name: estudioaurora-uploads

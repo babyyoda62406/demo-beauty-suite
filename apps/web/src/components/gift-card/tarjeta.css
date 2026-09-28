@@ -1,0 +1,262 @@
+/*
+ * Tarjeta regalo: maqueta de las siete plantillas.
+ *
+ * Viene del prototipo del cliente (retos/tarjetas-spa) y se ha tocado lo
+ * mínimo para meterlo aquí:
+ *   - las fuentes se sirven desde /public en vez de una carpeta hermana;
+ *   - las variables cuelgan de `.scene` y no de `:root`, para no teñir el
+ *     resto del panel;
+ *   - `img`/`svg` se acotan a `.face`, porque en global pisarían a Tailwind.
+ * El resto —geometría, tipografía y el giro— está tal cual se entregó.
+ */
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/tarjeta-regalo/fonts/playfair-display.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/tarjeta-regalo/fonts/playfair-display-italic.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('/tarjeta-regalo/fonts/great-vibes.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.scene {
+  --serif: 'Playfair Display', 'Times New Roman', serif;
+  --script: 'Great Vibes', cursive;
+  --ink: #4a3b40;
+  --ink-soft: #8a7a80;
+}
+
+.face img { display: block; max-width: 100%; }
+.face svg { display: block; }
+
+.scene {
+  width: 100%;
+  max-width: 540px;
+  container-type: inline-size;
+}
+.stage { perspective: 1700px; }
+
+.card3d {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.22;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.28, 0.68, 0.24, 1);
+  cursor: pointer;
+  outline-offset: 6px;
+}
+.card3d.is-flipped { transform: rotateY(-180deg); }
+.card3d:focus-visible {
+  outline: 2px solid #7a5a35;
+  box-shadow: 0 0 0 5px rgba(255, 252, 246, 0.85);
+  border-radius: clamp(16px, 5.2cqw, 30px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card3d { transition: none; }
+}
+
+.scene-caption {
+  margin-top: 1.05rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+.scene-caption .num { color: #a58e75; font-style: italic; margin-right: 0.5em; }
+.scene-caption .tip {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ---------- Caras ---------- */
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: clamp(16px, 5.2cqw, 30px);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow:
+    0 24px 44px -20px rgba(64, 24, 44, 0.45),
+    0 3px 10px rgba(64, 24, 44, 0.14);
+}
+.face.back { transform: rotateY(180deg); }
+
+/* Decoración posicionada libre dentro de la cara */
+.deco { position: absolute; pointer-events: none; }
+
+/* Contenido principal por encima de la decoración */
+.content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---------- Piezas tipográficas compartidas ---------- */
+.logo { width: 13.5cqw; }
+
+.kicker {
+  font-size: 3.1cqw;
+  font-weight: 500;
+  letter-spacing: 0.44em;
+  text-indent: 0.44em; /* compensa el tracking del último carácter */
+  text-transform: uppercase;
+}
+
+.title-serif {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 11.6cqw;
+  line-height: 1.05;
+}
+.title-script {
+  font-family: var(--script);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 3.75cqw;
+  letter-spacing: 0.03em;
+}
+
+/* Divisor: línea ─ ✦ ─ línea */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 2.2cqw;
+  width: 34cqw;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.75;
+}
+.divider svg { width: 2.6cqw; flex: none; }
+
+/* ---------- Reverso: bloque QR + campos ---------- */
+.back-cols {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5cqw;
+  padding: 8cqw 7cqw;
+}
+
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.6cqw;
+  flex: none;
+}
+.qr-panel {
+  position: relative;
+  width: 30cqw;
+  padding: 2.6cqw;
+  border-radius: 4cqw;
+}
+.qr { width: 100%; shape-rendering: crispEdges; }
+.qr-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  aspect-ratio: 1;
+  border-radius: 24%;
+  display: grid;
+  place-items: center;
+}
+.qr-badge svg { width: 72%; }
+
+.scan {
+  font-style: italic;
+  font-size: 3.9cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2cqw;
+}
+.scan .arrow { width: 3.2cqw; }
+
+.vline {
+  align-self: stretch;
+  width: 1px;
+  margin: 9cqw 0;
+  background: currentColor;
+  opacity: 0.55;
+  position: relative;
+}
+.vline svg {
+  position: absolute;
+  width: 3cqw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fields {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7cqw;
+}
+.field {
+  display: flex;
+  align-items: baseline;
+  font-size: 4.6cqw;
+  font-weight: 500;
+}
+.field i {
+  flex: 1;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.8;
+  margin-left: 2.2cqw;
+  transform: translateY(-0.5cqw);
+}
+
+/* ---------- Pie ---------- */
+
+/* ---------- Tarjeta fija ----------
+   Para imprimir o exportar a imagen no vale esconder una cara con
+   `backface-visibility`: hay que enseñar una sola, plana y sin 3D. */
+.card3d.is-static {
+  cursor: default;
+  transition: none;
+  transform: none;
+}
+.card3d.is-static .face { position: relative; transform: none; }
+.card3d.is-static:not(.is-flipped) .face.back { display: none; }
+.card3d.is-static.is-flipped .face.front { display: none; }

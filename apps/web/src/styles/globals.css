@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Estudio Aurora — "Editorial de lujo cálido, atelier de uñas".
+   Warm ivory canvas · warm near-black ink · magenta as a bold accent ·
+   rose-gold hairlines. Tokens exposed at :root so a tenant can white-label.
+   ========================================================================== */
+
+:root {
+  /* Brand magenta / fuchsia scale (accent, used with intent) */
+  --brand-50: #fce7f1;
+  --brand-100: #fbcfe3;
+  --brand-200: #f7a9cc;
+  --brand-300: #f075ae;
+  --brand-400: #e84393;
+  --brand-500: #d6157f;
+  --brand-600: #c2185b;
+  --brand-700: #9d0e4b;
+  --brand-800: #7a0b3a;
+  --brand-900: #5a0a2c;
+  --brand-950: #3a0620;
+
+  /* Warm ink + ivory surfaces */
+  --ink: #1a1012;
+  --ink-soft: #5a4a4e;
+  --surface: #fffdfb;
+  --surface-subtle: #fbf6ef;
+
+  /* Editorial warm tokens */
+  --cream: #fbf6ef;
+  --cream-deep: #f6eee4;
+  --gold: #b76e79; /* rose gold — hairlines, filets */
+  --gold-soft: #c9a26b; /* champagne — soft detailing */
+
+  /* State */
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  color-scheme: light;
+}
+
+/* Dark palette for the dashboards (marketing stays light). */
+.dark {
+  --surface: #17090f;
+  --surface-subtle: #1f0c16;
+  --cream: #1f0c16;
+  --cream-deep: #17090f;
+  --ink: #fdf2f8;
+  --ink-soft: #f5d6e6;
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    /* Default hairline leans rose-gold, not pink. */
+    border-color: rgba(183, 110, 121, 0.18);
+  }
+
+  html {
+    /* Escala base compacta (RONDA 1, pto 4): la clienta veía la web demasiado
+       grande en escritorio. 16px reproporciona todo sin perder legibilidad. */
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* OJO: no poner aquí `overflow-x: clip`. Contenía los elementos `fixed`,
+       sí, pero justo por eso los rompía: con overflow distinto de `visible` en
+       la raíz, el bloque contenedor de los `fixed` pasa a ser el documento y
+       dejan de estar anclados a la ventana. El aviso (toast) aparecía al final
+       de la página, tapado por la tabla y solo visible haciendo scroll.
+       El desbordamiento que motivó aquel parche se ataja donde nace: cada
+       elemento flotante se recorta en su propia capa (ver whatsapp-fab). */
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    background-color: var(--cream);
+    color: var(--ink);
+    /* Evita scroll horizontal por elementos decorativos anchos (marquee, mesh,
+       retratos desbordados). `clip` no crea contenedor de scroll → no rompe
+       sticky/fixed. */
+    overflow-x: clip;
+  }
+
+  /* Subtle film-grain over the whole canvas for depth (very low opacity). */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    /* Cormorant Garamond — serif de lujo. Tracking sereno (ligeramente
+       cerrado) que sienta bien al display sin apelmazarse.
+       El color se HEREDA a propósito: fijarlo aquí a `text-ink` dejaba los
+       títulos en negro sobre negro dentro de cualquier sección oscura (el
+       titular de Opiniones era invisible). El body ya es `text-ink`, así que
+       por defecto no cambia nada. */
+    @apply font-serif;
+    color: inherit;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: var(--brand-200);
+    color: var(--brand-900);
+  }
+
+  /* Accessible, always-visible focus ring. */
+  :focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Firma manuscrita "Estudio Aurora" — Allura script (RONDA 1). */
+  .font-logo {
+    @apply font-script;
+  }
+
+  /* Magenta gradient text for headline accents. */
+  .text-gradient-brand {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  /* Eyebrow label above section titles — ink caps with a gold tick. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-ink-soft;
+  }
+
+  /* Warm frosted card surface. */
+  .surface-card {
+    @apply rounded-[1.75rem] border border-gold/25 bg-surface shadow-card;
+  }
+
+  /* Oversized editorial section numeral, e.g. "01". */
+  .section-index {
+    @apply font-serif text-[clamp(3.5rem,10vw,7rem)] font-light italic leading-[0.8] text-gold/35;
+  }
+}
+
+@layer utilities {
+  /* Warm mesh atmosphere (magenta + rose-gold), for hero / accent panels. */
+  .bg-warm-mesh {
+    background-image:
+      radial-gradient(52% 55% at 12% 18%, rgba(214, 21, 127, 0.32) 0%, transparent 60%),
+      radial-gradient(46% 48% at 88% 12%, rgba(183, 110, 121, 0.4) 0%, transparent 58%),
+      radial-gradient(60% 60% at 78% 92%, rgba(201, 162, 107, 0.3) 0%, transparent 62%);
+  }
+
+  /* Legacy alias kept for any residual references. */
+  .bg-brand-mesh {
+    background-image:
+      radial-gradient(60% 55% at 15% 20%, rgba(232, 67, 147, 0.3) 0%, transparent 60%),
+      radial-gradient(50% 50% at 85% 15%, rgba(214, 21, 127, 0.24) 0%, transparent 55%),
+      radial-gradient(60% 60% at 75% 90%, rgba(183, 110, 121, 0.28) 0%, transparent 60%);
+  }
+
+  /* Thin rose-gold rule. */
+  .hairline-gold {
+    @apply h-px w-full border-0 bg-gradient-to-r from-transparent via-gold/50 to-transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbars on horizontal rails while keeping scroll behaviour. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Respect reduced-motion: neutralise decorative motion + parallax. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

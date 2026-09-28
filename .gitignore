@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Turborepo
+.turbo/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Prisma generated client
+**/prisma/generated/
+**/generated/prisma/
+
+# Testing / coverage
+coverage/
+*.lcov
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Misc
+*.tsbuildinfo
+
+# Material de referencia / QA / inputs sueltos (no forman parte del código)
+/nandini-html/
+/docs/e2e-shots/
+/WhatsApp Image*.jpeg
+/Chat de WhatsApp*.zip

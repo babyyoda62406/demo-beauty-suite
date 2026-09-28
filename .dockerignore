@@ -1,0 +1,54 @@
+# Root .dockerignore — keeps the build context small and free of secrets.
+
+# Dependencies & package manager stores
+**/node_modules
+.pnpm-store
+
+# Build outputs
+**/dist
+**/build
+**/.next
+**/out
+**/.turbo
+
+# Prisma generated client
+**/prisma/generated
+**/generated/prisma
+
+# Environment & secrets (NEVER copy real secrets into an image)
+.env
+.env.*
+!.env.example
+
+# VCS & CI
+.git
+.gitignore
+.github
+
+# Tooling / editors
+.vscode
+.idea
+*.log
+npm-debug.log*
+pnpm-debug.log*
+*.tsbuildinfo
+coverage
+*.lcov
+
+# Docs, brand assets and local media (not needed to build the apps)
+docs
+assets
+*.md
+!README.md
+*.zip
+*.jpeg
+*.jpg
+*.png
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files themselves
+**/Dockerfile
+docker-compose*.yml

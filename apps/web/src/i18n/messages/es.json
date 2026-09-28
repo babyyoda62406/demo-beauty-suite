@@ -1,0 +1,228 @@
+{
+  "brand": {
+    "name": "Estudio Aurora",
+    "tagline": "El arte de unas uñas perfectas",
+    "claim": "Manicura, diseño y estética de lujo en un espacio hecho para ti"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "services": "Servicios",
+    "spa": "Pedi Spa",
+    "gallery": "Galería",
+    "testimonials": "Opiniones",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "book": "Reservar cita",
+    "login": "Acceder",
+    "myAccount": "Mi cuenta"
+  },
+  "hero": {
+    "eyebrow": "Nails · Ciudad Demo",
+    "title": "ESTUDIO AURORA",
+    "subtitle": "Belleza, técnica y cuidado en cada detalle.",
+    "ctaPrimary": "Reservar cita por WhatsApp",
+    "ctaSecondary": "Ver servicios",
+    "stats": {
+      "custom": {
+        "title": "Diseños personalizados",
+        "label": "a tu estilo, hechos a mano"
+      },
+      "hygiene": {
+        "title": "Higiene cuidada",
+        "label": "esterilización en cada cita"
+      },
+      "booking": {
+        "title": "Reserva fácil",
+        "label": "por WhatsApp u online"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "Sobre mí",
+    "title": "Un espacio cálido creado por Estudio Aurora",
+    "body": "Un salón femenino y acogedor en Ciudad Demo donde tus uñas son las protagonistas. Aurora cuida cada detalle con técnica, higiene y cariño para que salgas sintiéndote radiante.",
+    "features": {
+      "hygiene": "Higiene y esterilización cuidada",
+      "premium": "Materiales de calidad y larga duración",
+      "custom": "Diseños personalizados a tu estilo",
+      "cozy": "Ambiente acogedor y femenino"
+    },
+    "founderLabel": "Manos expertas"
+  },
+  "services": {
+    "eyebrow": "Servicios",
+    "title": "Cuidamos cada detalle de ti",
+    "subtitle": "Desde una manicura rusa hasta el nail art más especial.",
+    "from": "Desde",
+    "book": "Reservar por WhatsApp",
+    "more": "Ver más",
+    "less": "Ver menos",
+    "durationLabel": "min"
+  },
+  "spa": {
+    "eyebrow": "Pedi Spa",
+    "title": "El descanso y cuidado que tus pies se merecen",
+    "subtitle": "El servicio más completo para consentir los pies: limpieza, cuidado y un rato de calma con pétalos, cítricos y aromaterapia.",
+    "quote": "Inhala calma… exhala todo lo demás.",
+    "steps": {
+      "bath": {
+        "title": "Baño aromático",
+        "body": "Agua templada con pétalos de rosa y rodajas de cítricos naturales."
+      },
+      "steam": {
+        "title": "Vapor",
+        "body": "Vapor caliente que relaja, ablanda la piel y la prepara para el cuidado."
+      },
+      "scrub": {
+        "title": "Exfoliante cremoso",
+        "body": "Jelly Spa Therapy: retira las células muertas y deja la piel limpia, fresca e hidratada."
+      },
+      "aroma": {
+        "title": "Aromaterapia",
+        "body": "Sales, velas y difusor para cerrar el ritual sin prisa."
+      }
+    },
+    "priceLabel": "Precio",
+    "book": "Reservar por WhatsApp",
+    "bookOnline": "Reservar online",
+    "whatsappMessage": "Hola, me gustaría reservar el Pedi Spa ✨",
+    "videoAlt": "Ritual de Pedi Spa en Estudio Aurora: baño con pétalos de rosa y cítricos, vapor y aromaterapia",
+    "photos": {
+      "tray": "Bandeja del ritual: sales, velas y difusor de aromaterapia",
+      "scrub": "Exfoliante cremoso Jelly Spa Therapy, el que usa Aurora en el Pedi Spa",
+      "steam": "Vapor caliente aplicado sobre la pierna durante el ritual"
+    }
+  },
+  "gallery": {
+    "eyebrow": "Galería",
+    "title": "Inspírate con nuestros diseños",
+    "subtitle": "Filtra por estilo y encuentra tu próximo look.",
+    "filters": {
+      "all": "Todas",
+      "acrilicas": "Uñas acrílicas",
+      "natural": "Uña natural",
+      "manicura": "Manicura",
+      "pedicura": "Pedicura",
+      "spa": "Pedi Spa",
+      "disenos": "Diseños",
+      "antesDespues": "Antes y después"
+    },
+    "prev": "Anterior",
+    "next": "Siguiente"
+  },
+  "testimonials": {
+    "eyebrow": "Opiniones",
+    "title": "Lo que dicen nuestras clientas",
+    "subtitle": "Muy pronto, las voces de nuestras clientas.",
+    "empty": "Pronto publicaremos las opiniones de nuestras clientas.",
+    "emptyHint": "¿Ya has venido? Nos encantará leer tu experiencia.",
+    "viewAll": "Ver todas las opiniones"
+  },
+  "opinionesPage": {
+    "metaTitle": "Opiniones",
+    "eyebrow": "Opiniones",
+    "title": "Lo que dicen nuestras clientas",
+    "subtitle": "Reseñas reales de quienes ya han pasado por el estudio. Aquí iremos publicando las experiencias de nuestras clientas.",
+    "empty": "Pronto publicaremos las opiniones de nuestras clientas.",
+    "emptyHint": "¿Ya has venido? Nos encantará leer tu experiencia y compartirla aquí.",
+    "ctaTitle": "¿Ya has venido?",
+    "ctaText": "Cuéntanos cómo fue tu experiencia. Nos ayuda muchísimo y encantará leerte.",
+    "ctaButton": "Comparte tu opinión por WhatsApp",
+    "back": "Volver al inicio"
+  },
+  "cta": {
+    "title": "¿Lista para lucir unas uñas de ensueño?",
+    "subtitle": "Reserva tu cita en menos de un minuto. Sin registro, sin complicaciones.",
+    "button": "Reservar online",
+    "whatsapp": "Reservar cita por WhatsApp"
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Dónde encontrarnos",
+    "subtitle": "Estamos en Ciudad Demo, muy cerca de Barcelona. Reserva tu cita por WhatsApp.",
+    "addressLabel": "Dirección",
+    "scheduleLabel": "Horario",
+    "phoneLabel": "Teléfono",
+    "instagramLabel": "Instagram",
+    "instagramText": "Síguenos en Instagram",
+    "instagramSalon": "Salón",
+    "instagramAcademia": "Academia",
+    "bookLabel": "Reservas",
+    "bookText": "Reserva previa por WhatsApp indicando el servicio y, si quieres, una foto del diseño.",
+    "whatsapp": "Reservar cita por WhatsApp",
+    "directions": "Cómo llegar",
+    "mapTitle": "Mapa de Estudio Aurora"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "schedule": "Horario",
+    "scheduleValue": "Lun a Sáb · 9:30 – 20:00",
+    "address": "Dirección",
+    "follow": "Síguenos",
+    "legal": "Aviso legal",
+    "privacy": "Privacidad",
+    "poweredBy": "Impulsado por FGD Beauty Suite"
+  },
+  "auth": {
+    "login": {
+      "title": "Bienvenida de nuevo",
+      "subtitle": "Accede a tu cuenta para gestionar tus citas y beneficios.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Acceder",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "noAccount": "¿Aún no tienes cuenta?",
+      "register": "Crear cuenta",
+      "error": "No hemos podido iniciar sesión. Revisa tus datos.",
+      "loading": "Accediendo…"
+    }
+  },
+  "client": {
+    "title": "Portal de clienta",
+    "nav": {
+      "dashboard": "Resumen",
+      "appointments": "Mis citas",
+      "loyalty": "Fidelización",
+      "payments": "Pagos",
+      "photos": "Mis fotos",
+      "vouchers": "Bonos",
+      "notifications": "Notificaciones",
+      "profile": "Perfil"
+    }
+  },
+  "admin": {
+    "title": "Panel del salón",
+    "nav": {
+      "agenda": "Agenda",
+      "clients": "Clientas",
+      "cash": "Caja",
+      "inventory": "Inventario",
+      "employees": "Empleadas",
+      "store": "Tienda",
+      "stats": "Estadísticas",
+      "settings": "Ajustes",
+      "web": "Mi web",
+      "webServices": "Servicios",
+      "webGallery": "Galería",
+      "webReviews": "Opiniones"
+    }
+  },
+  "superadmin": {
+    "title": "Super administración",
+    "nav": {
+      "tenants": "Salones",
+      "plans": "Planes",
+      "subscriptions": "Suscripciones",
+      "incidents": "Incidencias",
+      "modules": "Módulos",
+      "stats": "Estadísticas globales"
+    }
+  },
+  "common": {
+    "loading": "Cargando…",
+    "comingSoon": "Próximamente",
+    "search": "Buscar",
+    "logout": "Cerrar sesión"
+  }
+}
